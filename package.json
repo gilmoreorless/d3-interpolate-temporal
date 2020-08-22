@@ -28,6 +28,7 @@
     "src/**/*.js"
   ],
   "scripts": {
+    "postinstall": "[[ $PWD = $INIT_CWD ]] && patch-package || echo ''",
     "pretest": "rollup -c",
     "test": "tape 'test/**/*-test.js' && eslint src",
     "prepublishOnly": "rm -rf dist && yarn test",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "d3-color": "1",
+    "patch-package": "^6.2.2",
     "proposal-temporal": "^0.3.1"
   },
   "sideEffects": false,
