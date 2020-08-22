@@ -11,7 +11,13 @@ const config = {
     indent: false,
     extend: true,
     banner: `// ${meta.homepage} v${meta.version} Copyright ${(new Date).getFullYear()} ${meta.author.name}`,
-    globals: Object.assign({}, ...Object.keys(meta.dependencies || {}).filter(key => /^d3-/.test(key)).map(key => ({[key]: "d3"})))
+    globals: Object.assign(
+      {},
+      ...Object.keys(meta.dependencies || {}).filter(key => /^d3-/.test(key)).map(key => ({[key]: "d3"})),
+      {
+        'proposal-temporal': 'Temporal',
+      }
+    )
   },
   plugins: []
 };

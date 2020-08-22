@@ -2,6 +2,8 @@ var tape = require("tape"),
     color = require("d3-color"),
     interpolate = require("../");
 
+const { Temporal } = require("proposal-temporal");
+
 tape("interpolate(a, b) interpolates strings if b is a string and not a color", function(test) {
   test.strictEqual(interpolate.interpolate("foo", "bar")(0.5), "bar");
   test.end();
@@ -63,6 +65,14 @@ tape("interpolate(a, b) interpolates dates if b is a date", function(test) {
       d = i(0.5);
   test.equal(d instanceof Date, true);
   test.strictEqual(+i(0.5), +new Date(2000, 0, 1, 12));
+  test.end();
+});
+
+tape("interpolate(a, b) interpolates Temporal DateTimes if b is a DateTime", function(test) {
+  var i = interpolate.interpolate(new Temporal.DateTime(2000, 1, 1), new Temporal.DateTime(2000, 1, 2)),
+      d = i(0.5);
+  test.equal(d instanceof Temporal.DateTime, true);
+  test.deepEqual(i(0.5), new Temporal.DateTime(2000, 1, 1, 12));
   test.end();
 });
 

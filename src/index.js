@@ -10,6 +10,7 @@ export {default as interpolateNumberArray} from "./numberArray.js";
 export {default as interpolateObject} from "./object.js";
 export {default as interpolateRound} from "./round.js";
 export {default as interpolateString} from "./string.js";
+export {default as interpolateTemporal} from "./temporal.js";
 export {interpolateTransformCss, interpolateTransformSvg} from "./transform/index.js";
 export {default as interpolateZoom} from "./zoom.js";
 export {default as interpolateRgb, rgbBasis as interpolateRgbBasis, rgbBasisClosed as interpolateRgbBasisClosed} from "./rgb.js";
