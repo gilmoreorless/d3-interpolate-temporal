@@ -10,7 +10,7 @@ function dateTime(year, month, day, hour, minute) {
 }
 
 function dateTimeMs(millis) {
-  return Temporal.Absolute.fromEpochMilliseconds(millis).toDateTime('UTC');
+  return Temporal.Instant.fromEpochMilliseconds(millis).toDateTime('UTC');
 }
 
 tape("interpolateTemporal(a, b) interpolates between two DateTimes a and b", function(test) {
